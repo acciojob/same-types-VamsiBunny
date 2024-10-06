@@ -2,11 +2,17 @@ function isSameType(value1, value2) {
     let a = typeof(value1);
     let b = typeof(value2);
 
-    // Special case for NaN
+    // Check if both values are NaN
     if (isNaN(value1) && isNaN(value2)) {
         return true;
     }
 
+    // If one is NaN and the other isn't, return false
+    if (isNaN(value1) || isNaN(value2)) {
+        return false;
+    }
+
+    // Otherwise, compare their types
     return a === b;
 }
 
